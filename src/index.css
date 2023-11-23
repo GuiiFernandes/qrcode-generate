@@ -6,6 +6,8 @@
   --grayish-blue: #7b879d;
   --dark-blue: #1f3251;
   --light-blue: #3685fe;
+  --red: #ff6666;
+  --dark-red: #a62828;
 }
 
 * {
@@ -36,8 +38,34 @@ a {
   font-size: 2rem;
 }
 
+ul li {
+  list-style: none;
+}
+
 .active {
   font-weight: 900;
   text-transform: uppercase;
   transition: all 0.2s ease-in;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--dark-blue);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--dark-blue);
+    border-radius: 30px;
+    border: none;
+  }

@@ -2,11 +2,30 @@ import { useState } from 'react';
 import { useQRCode } from 'next-qrcode';
 import validator from 'validator';
 
-import { Main, Form, Input, Div, H1, Btn, P } from './styled';
+import { Main, Btn, H1 } from '../../globalStyled';
+import { Form, Input, Div, P } from './styled';
+import { Toast } from '../../utils/swal';
 
 function Home() {
   const { Canvas } = useQRCode();
   const [url, setUrl] = useState('');
+
+  const saveQr = () => {
+    const qrList = JSON.parse(localStorage.getItem('qrList') || '[]');
+    if (qrList.includes(url)) {
+      Toast.fire({
+        icon: 'warning',
+        title: 'Esse QrCode já foi salvo',
+      });
+      return;
+    }
+    qrList.push(url);
+    localStorage.setItem('qrList', JSON.stringify(qrList));
+    Toast.fire({
+      icon: 'success',
+      title: 'QrCode salvo com sucesso',
+    });
+  };
 
   return (
     <Main>
@@ -39,7 +58,7 @@ function Home() {
           )}
         </Div>
       </Form>
-      <Btn>Salvar QR</Btn>
+      <Btn onClick={ saveQr }>Salvar QR</Btn>
     </Main>
   );
 }
