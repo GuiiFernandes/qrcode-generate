@@ -1,6 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
+
+import Home from './pages/Home';
+import LinksList from './pages/LinksList';
+import Layout from './components/Layout';
+
 function App() {
   return (
-    <main>GERADOR DE QRCODE</main>
+    <Routes>
+      <Route path="/" element={ <Layout /> }>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/list" element={ <LinksList /> } />
+      </Route>
+    </Routes>
   );
 }
 
