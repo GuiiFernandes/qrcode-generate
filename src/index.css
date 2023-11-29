@@ -46,18 +46,21 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-/* ===== Scrollbar CSS ===== */
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    height: 8px;
-  }
+ul li {
+  list-style: none;
+}
 
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 8px;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--dark-blue);
-    border-radius: 30px;
-    border: none;
-  }
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue);
+  border-radius: 30px;
+  border: none;
+}
