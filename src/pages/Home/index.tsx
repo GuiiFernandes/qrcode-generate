@@ -1,25 +1,24 @@
 import { useState } from 'react';
-import { useQRCode } from 'next-qrcode';
+import QRCode from 'qrcode.react';
 import validator from 'validator';
 
-import { Main, Btn, H1 } from '../../globalStyled';
-import { Form, Input, Div, P } from './styled';
 import { Toast } from '../../utils/swal';
+import { Btn, H1, Main } from '../../GlobalStyled';
+import { Div, Form, Input, P } from './styled';
 
 function Home() {
-  const { Canvas } = useQRCode();
-  const [url, setUrl] = useState('');
+  const [link, setLink] = useState('');
 
-  const saveQr = () => {
-    const qrList = JSON.parse(localStorage.getItem('qrList') || '[]');
-    if (qrList.includes(url)) {
+  const onSave = () => {
+    const qrList: string[] = JSON.parse(localStorage.getItem('qrList') || '[]');
+    if (qrList.includes(link)) {
       Toast.fire({
-        icon: 'warning',
+        icon: 'error',
         title: 'Esse QrCode já foi salvo',
       });
       return;
     }
-    qrList.push(url);
+    qrList.push(link);
     localStorage.setItem('qrList', JSON.stringify(qrList));
     Toast.fire({
       icon: 'success',
@@ -33,32 +32,33 @@ function Home() {
       <Form>
         <Input
           type="url"
-          id="url"
-          value={ url }
-          placeholder="insira sua url"
-          onChange={ ({ target }) => setUrl(target.value) }
+          value={ link }
+          onChange={ (param) => setLink(param.target.value) }
         />
-        <Div>
-          { validator.isURL(url) ? (
-            <Canvas
-              text={ url }
-              options={ {
-                errorCorrectionLevel: 'M',
-                margin: 3,
-                scale: 4,
-                width: 200,
-                color: {
-                  dark: '#fff',
-                  light: '#3685fe',
-                },
-              } }
+      </Form>
+      <Div>
+        {
+          validator.isURL(link) ? (
+            <QRCode
+              value={ link }
+              renderAs="svg"
+              level="M"
+              size={ 200 }
+              bgColor="var(--light-blue)"
+              fgColor="var(--white)"
             />
           ) : (
             <P>Digite uma URL válida para gerar o seu QRCode</P>
-          )}
-        </Div>
-      </Form>
-      <Btn onClick={ saveQr }>Salvar QR</Btn>
+          )
+        }
+      </Div>
+      <Btn
+        disabled={ !validator.isURL(link) }
+        type="button"
+        onClick={ onSave }
+      >
+        Salvar Link
+      </Btn>
     </Main>
   );
 }

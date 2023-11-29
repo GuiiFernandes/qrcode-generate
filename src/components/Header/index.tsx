@@ -6,8 +6,8 @@ function Header() {
   return (
     <HeaderStyled>
       <Nav>
-        <NavLink to="/">Gerar</NavLink>
-        <NavLink to="/list">Lista</NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/lista">Lista</NavLink>
       </Nav>
     </HeaderStyled>
   );

@@ -1,15 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import LinksList from './pages/LinksList';
+import List from './pages/List';
 import Layout from './components/Layout';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Layout /> }>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/list" element={ <LinksList /> } />
+      <Route path="/" Component={ Layout }>
+        <Route path="" Component={ Home } />
+        <Route path="lista" Component={ List } />
       </Route>
     </Routes>
   );

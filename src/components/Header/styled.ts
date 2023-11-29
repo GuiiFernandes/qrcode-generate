@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const HeaderStyled = styled.header`
   position: fixed;
   top: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 60px;
 `;
 

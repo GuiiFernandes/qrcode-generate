@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  max-width: 600px;
-  background-color: var(--white);
-  padding: 40px 20px;
-  gap: 20px;
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-`;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -25,7 +11,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   margin: 5px;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--grayish-blue);
   border-radius: 6px;
   outline: none;
   background: transparent;
