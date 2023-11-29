@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --white: #ffffff;
+  --light-gray: #d6e2f0;
+  --grayish-blue: #7b879d;
+  --dark-blue: #1f3251;
+  --light-blue: #3685fe;
+  --red: #ff6666;
+  --dark-red: #a62828;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scrollbar-width: auto;
+  scrollbar-color: var(--dark-blue);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#root {
+  font-size: 1.6rem;
+  background-color: var(--light-gray);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-blue);
+  font-size: 2rem;
+}
+
+.active {
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--dark-blue);
+    border-radius: 30px;
+    border: none;
+  }
